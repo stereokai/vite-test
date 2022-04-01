@@ -1,12 +1,7 @@
 import workerpool from "workerpool";
 import "./style.css";
 
-var pool = workerpool.pool(
-  new URL("./worker/CompiledWorker.js", import.meta.url).href,
-  {
-    maxWorkers: 3,
-  }
-);
+var pool = workerpool.pool(new URL("./worker/CompiledWorker.js", import.meta.url).href);
 
 pool
   .exec("fibonacci", [10])
